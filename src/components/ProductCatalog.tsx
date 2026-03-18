@@ -1,3 +1,4 @@
+// Product catalog module updates by OSHI123-o
 import { ReactNode } from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

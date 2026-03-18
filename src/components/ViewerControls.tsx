@@ -1,3 +1,4 @@
+//updated by ranumipesakya
 import { Box, Maximize2, Video } from 'lucide-react';
 
 interface ViewerControlsProps {

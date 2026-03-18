@@ -1,3 +1,4 @@
+//updates by Ishira
 import * as THREE from 'three';
 
 export function cleanupThreeScene(

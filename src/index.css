@@ -1,0 +1,315 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+/* ============================================
+   THEME CONFIGURATION
+   Light Mode: Charcoal Gray (#2C3E50), Warm White (#F5F5F5), Sage Green (#A3C4BC)
+   Dark Mode: Deep Charcoal (#1A1E24), Dark Gray (#2D333A), Sage Green (#86A789)
+   ============================================ */
+
+:root {
+  /* Light Mode Colors */
+  --color-primary: #2C3E50;
+  --color-secondary: #F5F5F5;
+  --color-accent: #A3C4BC;
+  --color-accent-dark: #7BA39E;
+  
+  /* Backgrounds */
+  --bg-primary: #F5F5F5;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  
+  /* Text */
+  --text-primary: #2C3E50;
+  --text-secondary: #6b6560;
+  --text-muted: #9CA3AF;
+  
+  /* Borders */
+  --border-color: #E8E4DE;
+  --border-light: #e8e2db;
+  
+  /* Specific UI Elements */
+  --header-bg: rgba(245, 245, 245, 0.8);
+  --card-bg: #FFFFFF;
+  --shadow-color: rgba(44, 62, 80, 0.1);
+  
+  /* Accent Colors */
+  --accent-sage: #A3C4BC;
+  --accent-teal: #4A7C7C;
+}
+
+.dark {
+  /* Dark Mode Colors */
+  --color-primary: #86A789;
+  --color-secondary: #2D333A;
+  --color-accent: #86A789;
+  --color-accent-dark: #6B8B6D;
+  
+  /* Backgrounds */
+  --bg-primary: #1A1E24;
+  --bg-secondary: #2D333A;
+  --bg-card: #2D333A;
+  
+  /* Text */
+  --text-primary: #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  
+  /* Borders */
+  --border-color: #3F454D;
+  --border-light: #3F454D;
+  
+  /* Specific UI Elements */
+  --header-bg: rgba(26, 30, 36, 0.8);
+  --card-bg: #2D333A;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   BUTTON ANIMATIONS
+   ============================================ */
+
+/* Pulse Glow Button */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(163, 196, 188, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(163, 196, 188, 0.6);
+  }
+}
+
+.btn-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Shimmer Effect Button */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Magnetic Button Effect */
+.btn-magnetic {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.1) translateY(-2px);
+}
+
+/* Fill Animation */
+@keyframes fill-left {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.btn-fill {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn-fill:hover::before {
+  transform: scaleX(1);
+}
+
+/* Gradient Border Animation */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-gradient-border {
+  position: relative;
+  background: var(--bg-secondary);
+}
+
+.btn-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-primary)
+  );
+  background-size: 200% 200%;
+  animation: gradient-rotate 3s ease infinite;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ============================================
+   CARD HOVER EFFECTS
+   ============================================ */
+
+.card-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+.dark ::selection {
+  background: var(--color-accent);
+  color: #1A1E24;
+}
+
+/* ============================================
+   UTILITY ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   THEME TRANSITION
+   ============================================ */
+
+* {
+  transition: background-color 0.3s ease, 
+              border-color 0.3s ease,
+              color 0.15s ease;
+}

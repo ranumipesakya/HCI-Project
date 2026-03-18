@@ -1,3 +1,4 @@
+//updated by ranumipesakya
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, PencilIcon } from 'lucide-react';
 import { Product } from '../data/products';

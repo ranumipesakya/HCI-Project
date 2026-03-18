@@ -1,3 +1,4 @@
+// App integration updates by Kusalvin
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from './components/Header';

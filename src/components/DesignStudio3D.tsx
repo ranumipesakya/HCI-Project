@@ -1,3 +1,4 @@
+//design by IshiraOO
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';

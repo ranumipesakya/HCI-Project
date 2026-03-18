@@ -1,3 +1,4 @@
+// Product catalog module updates by OSHI123-o
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';

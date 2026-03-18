@@ -1,3 +1,4 @@
+// Product catalog module updates by OSHI123-o
 export interface Product {
   id: string;
   name: string;

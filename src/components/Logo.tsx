@@ -1,3 +1,4 @@
+// Landing UI updates by sapuCodes
 import { motion } from 'framer-motion';
 
 // Custom KONTUR Logo Icon - Modern K letter mark with furniture design

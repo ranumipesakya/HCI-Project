@@ -1,3 +1,4 @@
+// Landing UI updates by sapuCodes
 import { motion } from 'framer-motion';
 import { SearchIcon, MenuIcon, SunIcon, MoonIcon } from 'lucide-react';
 import { BrandLogo } from './Logo';

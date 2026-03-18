@@ -1,3 +1,4 @@
+// Landing UI updates by sapuCodes
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Box, Layers, MousePointer2 } from 'lucide-react';
 
